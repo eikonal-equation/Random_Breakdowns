@@ -29,7 +29,7 @@ Assuming the libraries are appropriately linked, you should be able to compile t
 The four examples from the manuscript can be reproduced with the following commands
 * To compile & run Example 1: Convergence of iterative scheme (radially symmetric, constant environment, target and depot at located at the center of the domain):
 ` make run TEST=Example1 `
-* To compile & run Example 2: Inhomogenous partial breakdown rate (inhomogenous partial breakdown rate, include cases with and without total breakdowns, single target and depot located at the center of the domain):
+* To compile & run Example 2: Inhomogenous partial breakdown rate (inhomogenous partial breakdown rate, includes cases with and without total breakdowns, single target and depot located at the center of the domain):
 ` make run TEST=Example2 `
 * To compile & run Example 3: Changing partial breakdown rate (includes multiple partial breakdown rates, no total breakdowns, three depots, one target, all at distinct locations):
 ` make run TEST=Example3 `
