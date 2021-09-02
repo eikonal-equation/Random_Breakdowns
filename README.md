@@ -28,6 +28,9 @@ The code uses the C++17 standard, and can be compiled using both gcc and icpc.
 The plotting scripts are in [jupyter notebooks](https://jupyter.org/).
 The Python code in the notebooks requires [numpy](https://numpy.org/) and [matplotlib](https://matplotlib.org/).
 
+### Data
+Example 4 relies on terrain data from Mars, found in the `data` directory. The speed and breakdown rates can be computed using the file [DataProcessing](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/src/DataProcessing.m). The code assumes that the speed and breakdown rate data is stored in the `/usr/local/data` directory in `.csv` format and formatted as an `nx` by `ny` array. The region of interest was selecte by hand and the data was exported using [JMARS](https://jmars.asu.edu/), a Mars GIS. The region used in Example 4 is approximately square, spanning latitudes  18.41 to 18.58 degrees North, and longitudes 77.07 to 77.46 degrees East.
+
 ## Running the Code
 Assuming the libraries are appropriately linked, you should be able to compile the code and run the test cases from the manuscript.
 
