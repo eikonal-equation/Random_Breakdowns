@@ -8,6 +8,11 @@ The primary purpose in distributing this source code is to enable readers to rep
 
 
 # Contributions
+* The manuscript for this project was written and edited by Marissa Gee and Alexander Valdimirsky
+* The problem statement was developed by Alexander Vladimirsky and Marissa Gee
+* The algorithm design was performed by Marissa Gee and Alexander Vladimirsky
+* The implementation is by Marissa Gee, and makes use of existing code developed by Elliot Cartee, Zachary Clawson, and Marc Gilles
+
 
 # Instructions
 ## Requirements
