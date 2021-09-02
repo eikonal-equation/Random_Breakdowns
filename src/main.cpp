@@ -388,8 +388,6 @@ int main (int argc, char* argv[]) {
   /** Set default reporting values, that will be changed if needed */
   const double rho = 0.9;
 
-  std::cout << arg1 << std::endl;
-
   if (arg1 == "Example1") {
     /** Create arrays for depots and goal points */
     const int depots_n = 1;
@@ -446,6 +444,34 @@ int main (int argc, char* argv[]) {
     const int n = 501;
 
     /** Create arrays for depots and goal points */
+    const int depots_n = 1;
+    const int goals_n = 1;
+    double depots_list[depots_n][2] = {{0.9, 0.5}};
+    double goals_list[goals_n][2] = {{0.9, 0.5}};
+
+    /** Run without total breakdowns */
+    std::string model = "OnlyPartialBreakdowns";
+    std::string mode = "VP";
+    rand_breakdown_solver = std::make_shared<CRandomBreakdowns>(
+                              Environment_2(n, n, model+mode, rho, depots_list, depots_n,
+                                            goals_list, goals_n, true)
+                            );
+    filename = "Example2_" + model + "_" + mode;
+    rand_breakdown_solver->computeExpectedCost(filename);
+
+    /** Run with total breakdowns */
+    model = "TwoBreakdownTypes";
+    mode = "VP";
+    rand_breakdown_solver = std::make_shared<CRandomBreakdowns>(
+                              Environment_2(n, n, model+mode, rho, depots_list, depots_n,
+                                            goals_list, goals_n, true)
+                            );
+    filename = "Example2_" + model + "_" + mode;
+    rand_breakdown_solver->computeExpectedCost(filename);
+  } else if (arg1 == "Example3") {
+    const int n = 501;
+
+    /** Create arrays for depots and goal points */
     const int depots_n = 3;
     const int goals_n = 1;
     double depots_list[depots_n][2] = {{0.3, 0.1}, {0.35, 0.55}, {0.8, 0.6}};
@@ -478,37 +504,9 @@ int main (int argc, char* argv[]) {
                                               goals_list, goals_n, false, speed, bdrs[i],
                                               fuel_cost, time_cost, time_value)
                               );
-      filename = "Example2_" + model + "_" + mode + "_" + std::to_string(bdrs[i]);
+      filename = "Example3_" + model + "_" + mode + "_" + std::to_string(bdrs[i]);
       rand_breakdown_solver->computeExpectedCost(filename);
     }
-  } else if (arg1 == "Example3") {
-    const int n = 501;
-
-    /** Create arrays for depots and goal points */
-    const int depots_n = 1;
-    const int goals_n = 1;
-    double depots_list[depots_n][2] = {{0.9, 0.5}};
-    double goals_list[goals_n][2] = {{0.9, 0.5}};
-
-    /** Run without total breakdowns */
-    std::string model = "OnlyPartialBreakdowns";
-    std::string mode = "VP";
-    rand_breakdown_solver = std::make_shared<CRandomBreakdowns>(
-                              Environment_2(n, n, model+mode, rho, depots_list, depots_n,
-                                            goals_list, goals_n, true)
-                            );
-    filename = "Example3_" + model + "_" + mode;
-    rand_breakdown_solver->computeExpectedCost(filename);
-
-    /** Run with total breakdowns */
-    model = "TwoBreakdownTypes";
-    mode = "VP";
-    rand_breakdown_solver = std::make_shared<CRandomBreakdowns>(
-                              Environment_2(n, n, model+mode, rho, depots_list, depots_n,
-                                            goals_list, goals_n, true)
-                            );
-    filename = "Example3_" + model + "_" + mode;
-    rand_breakdown_solver->computeExpectedCost(filename);
   } else if (arg1 == "Example4") {
     const int n = 501;
 
@@ -519,9 +517,9 @@ int main (int argc, char* argv[]) {
     double goals_list[goals_n][2] = {{0.1, 0.1}};
 
     /** Set environment parameters */
-    const std::string working_speed_filename = "data/Ex1_speed_7.csv";
-    const std::string damaged_speed_filename = "data/Ex1_speed_8.csv";
-    const std::string breakdown_rate_filename = "data/Ex1_bdrate_2.csv";
+    const std::string working_speed_filename = "data/Ex4_f_1.csv";
+    const std::string damaged_speed_filename = "data/Ex4_f_2.csv";
+    const std::string breakdown_rate_filename = "data/Ex4_phi.csv";
 
     /** Run established mode */
     const std::string model = "OnlyPartialBreakdowns";

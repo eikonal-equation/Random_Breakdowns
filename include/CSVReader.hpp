@@ -23,7 +23,7 @@
 * Authors: Marissa Gee
 *
 * Description: This file contains inline definitions for reading numeric data
-* from a CSV file
+* from a CSV file into a Boost multi-array
 *
 * ==============================================================================
 */
@@ -43,6 +43,9 @@
 #include "GlobalConfiguration.hpp"
 #include "MemoryAllocations.hpp"
 
+/** Function for reading CSV file into boost::multi_array.
+ * @param aFilename  string the name of the CSV file to be read.
+ */
 std::shared_ptr<memory::array2D_t<double>> read_csv(std::string aFilename) {
   int nx = 0;
   int ny = 0;
@@ -55,13 +58,12 @@ std::shared_ptr<memory::array2D_t<double>> read_csv(std::string aFilename) {
     double dataPoint;
     std::string test;
 
-    // Extract first line, use it to compute nx
     std::getline(file, line);
     ny++;
     std::stringstream lineStream(line);
 
-    // extract leading zero
-    std::getline(lineStream, test, ',');
+    /** Extract first row and compute nx */
+    // std::getline(lineStream, test, ',');
     while (lineStream >> dataPoint) {
       values.push(dataPoint);
       nx++;
@@ -71,7 +73,7 @@ std::shared_ptr<memory::array2D_t<double>> read_csv(std::string aFilename) {
       }
     }
 
-    // extract the remaining rows
+    /** Extract the remaining rows */
     while (std::getline(file, line)) {
       ny++;
       std::stringstream lineStream(line);
@@ -89,7 +91,7 @@ std::shared_ptr<memory::array2D_t<double>> read_csv(std::string aFilename) {
     assert(false);
   }
 
-  // format the results as a 2D array
+  /** Format the results as a 2D array */
   std::shared_ptr<memory::array2D_t<double>> result =
     std::make_shared<memory::array2D_t<double>>(memory::allocateArray2D<double>(nx, ny));
 
@@ -99,7 +101,6 @@ std::shared_ptr<memory::array2D_t<double>> read_csv(std::string aFilename) {
       values.pop();
     }
   }
-
   return result;
 }
 
