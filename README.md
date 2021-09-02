@@ -25,7 +25,7 @@ If those libraries are installed elsewhere, you will have to modify the [Makefil
 
 The code uses the C++17 standard, and can be compiled using both gcc and icpc.
 
-The plotting scripts are in [jupyter notebooks](https://jupyter.org/).
+The plotting scripts are in [Jupyter notebooks](https://jupyter.org/).
 The Python code in the notebooks requires [numpy](https://numpy.org/) and [matplotlib](https://matplotlib.org/).
 
 ### Data
@@ -35,21 +35,21 @@ Example 4 relies on terrain data from Mars, found in the `data` directory. The s
 Assuming the libraries are appropriately linked, you should be able to compile the code and run the test cases from the manuscript.
 
 The four examples from the manuscript can be reproduced with the following commands
-* To compile & run Example 1: Convergence of iterative scheme (radially symmetric, constant environment, target and depot at located at the center of the domain):
+* To compile & run Example 1: Convergence of iterative scheme (radially symmetric, constant environment, target and depot located at the center of the domain):
 ` make run TEST=Example1 `
-* To compile & run Example 2: Inhomogenous partial breakdown rate (inhomogenous partial breakdown rate, includes cases with and without total breakdowns, single target and depot located at the center of the domain):
+* To compile & run Example 2: Inhomogenous partial breakdown rate (inhomogenous partial breakdown rate, includes cases with and without total breakdowns, single target and depot located at the same location):
 ` make run TEST=Example2 `
-* To compile & run Example 3: Changing partial breakdown rate (includes multiple partial breakdown rates, no total breakdowns, three depots, one target, all at distinct locations):
+* To compile & run Example 3: Changing partial breakdown rate (includes multiple partial breakdown rates, no total breakdowns, and three depots and one target, all at distinct locations):
 ` make run TEST=Example3 `
-* To compile & run Example 4: Real-world terrain (speed and partial breakdown rate based on Martian terrain, no total breakdowns, single target and depot at the same location)):
+* To compile & run Example 4: Real-world terrain (speed and partial breakdown rate based on Martian terrain, no total breakdowns, single target and depot at the same location):
 ` make run TEST=Example4 `
 
 
 ## Visualizing Output
-You can visualize the value functions for each example using the jupyter notebook [RandomBreakdowns](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/plotting/RandomBreakdowns.ipynb). In the file, you will need to specify the example that was run, the version of the model ('TwoBreakdownTypes', 'OnlyPartialBreakdowns', or 'OnlyTotalBreakdowns'), and the version of the iterative algorithm used ('V' for value iterations or 'VP' for value-policy iterations). All examples in the manuscript use value-policy iterations by default. For example, to visualize Example 1 of the paper, set `test = Example1`, `model = TwoBreakdownTypes`, and `mode = VP`.
+You can visualize the value functions for each example using the Jupyter notebook [RandomBreakdowns](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/plotting/RandomBreakdowns.ipynb). In the file, you will need to specify the example that was run, the version of the model ('TwoBreakdownTypes', 'OnlyPartialBreakdowns', or 'OnlyTotalBreakdowns'), and the version of the iterative algorithm used ('V' for value iterations or 'VP' for value-policy iterations). All examples in the manuscript use value-policy iterations by default. For example, to visualize Example 1 of the paper, set `test = Example1`, `model = TwoBreakdownTypes`, and `mode = VP`.
 
 ### Visualizing optimal trajectories
-For Examples 2, 3, and 4 optimal trajectories can be visualized using the jupyter notebook [OptimalTrajectories](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/plotting/OptimalTrajectories.ipynb). The first section computes and plots optimal trajectories for Example 2 or Example 4 (with the example specified as outlined above). The second section computes and visualizes optimal trajectories for a range of partial breakdown rates for Example 3. The optimal trajectories are visualized over a single value function.
+For Examples 2, 3, and 4 optimal trajectories can be visualized using the Jupyter notebook [OptimalTrajectories](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/plotting/OptimalTrajectories.ipynb). The first section computes and plots optimal trajectories for Example 2 or Example 4 (with the example specified as outlined above). The second section computes and visualizes optimal trajectories for a range of partial breakdown rates for Example 3. The optimal trajectories are imposed over a single value function.
 
 ### Visualizing convergence results
-For Example 1, the convergence under grid refinement can be visualized using the jupyter notebook [ConvergencePlotting](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/plotting/ConvergencePlotting.ipynb). The notebook also plots 1-dimensional representations of the radially symmetric value functions, and 1-dimensional representations of the location dependent error between the numerical and analytic solutions.
+For Example 1, the convergence under grid refinement can be visualized using the Jupyter notebook [ConvergencePlotting](https://github.com/eikonal-equation/Random_Breakdowns/blob/main/plotting/ConvergencePlotting.ipynb). The notebook also plots one-dimensional representations of the radially symmetric value functions, and one-dimensional representations of the location dependent error between the numeric and analytic solutions.
