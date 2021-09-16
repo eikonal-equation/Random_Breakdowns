@@ -4,7 +4,7 @@ This program is free software: you can redistribute it and/or modify it under th
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
 # Manuscript
-The primary purpose in distributing this source code is to enable readers to reproduce the numerical results reported in the manuscript "Optimal Path Planning with Random Breakdowns" by Marissa Gee and Alexander Vladimirsky.
+The primary purpose in distributing this source code is to enable readers to reproduce the numerical results reported in the manuscript ["Optimal Path Planning with Random Breakdowns"](https://arxiv.org/abs/2109.06910) by Marissa Gee and Alexander Vladimirsky.
 
 
 # Contributions
